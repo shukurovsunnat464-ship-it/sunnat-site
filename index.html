@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="uz" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description" content="Sunnat Shukurov — Linux Systems Specialist, Cybersecurity Learner, IT mutaxassisi. Professional IT yechimlar va texnik yordam.">
+<meta name="keywords" content="Sunnat Shukurov, Linux, Cybersecurity, IT, Portfolio, Uzbekistan">
+<meta name="author" content="Sunnat Shukurov">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Sunnat Shukurov — Linux Systems Specialist">
+<meta property="og:description" content="Zamonaviy tizimlar, serverlar, xavfsizlik va professional IT yechimlar.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uz_UZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sunnat Shukurov — Linux Systems Specialist">
+<meta name="theme-color" content="#0a0a0a">
+<title>Sunnat Shukurov — Linux Systems Specialist</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0a;--bg2:#111;--bg3:#1a1a1a;--bg4:#222;
+--red:#e63946;--red2:#ff1744;--red-glow:rgba(230,57,70,.3);
+--white:#f8f9fa;--gray:#adb5bd;--gray2:#6c757d;--gray3:#495057;
+--glass:rgba(255,255,255,.04);--glass2:rgba(255,255,255,.08);
+--glass-border:rgba(255,255,255,.08);
+--green:#00ff41;--green2:#39ff14;--green-glow:rgba(0,255,65,.3);
+--accent:var(--red);--accent2:var(--red2);--accent-glow:var(--red-glow);
+--font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--mono:'JetBrains Mono','SF Mono','Fira Code','Cascadia Code',monospace;
+--transition:cubic-bezier(.4,0,.2,1);
+}
+body.hacker-mode{
+--accent:var(--green);--accent2:var(--green2);--accent-glow:var(--green-glow);
+}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+src:url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
+body{font-family:var(--font);background:var(--bg);color:var(--white);overflow-x:hidden;
+line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;cursor:none}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:none}
+/* CUSTOM CURSOR */
+.cursor-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;position:fixed;
+pointer-events:none;z-index:100000;transition:transform .15s var(--transition);mix-blend-mode:difference}
+.cursor-ring{width:40px;height:40px;border:1.5px solid var(--accent);border-radius:50%;position:fixed;
+pointer-events:none;z-index:99999;transition:transform .2s var(--transition),width .3s,height .3s,
+border-color .3s;transform:translate(-50%,-50%)}
+.cursor-dot.hover{transform:scale(3)}
+.cursor-ring.hover{width:60px;height:60px;border-color:var(--accent2)}
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:999999;background:var(--bg);display:flex;flex-direction:column;
+align-items:center;justify-content:center;transition:opacity .8s var(--transition),visibility .8s}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-content{text-align:center;max-width:500px;padding:0 2rem}
+.loader-logo{font-size:2rem;font-weight:800;letter-spacing:6px;margin-bottom:3rem;
+background:linear-gradient(135deg,var(--white),var(--accent));-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;background-clip:text}
+.loader-lines{text-align:left;margin-bottom:2rem}
+.loader-line{font-family:var(--mono);font-size:.85rem;color:var(--gray2);margin:.6rem 0;
+opacity:0;transform:translateX(-20px);transition:all .5s var(--transition)}
+.loader-line.active{opacity:1;transform:translateX(0);color:var(--accent)}
+.loader-line.done{color:var(--gray)}
+.loader-line::before{content:'▸ ';color:var(--accent)}
+.loader-bar-wrap{width:100%;height:2px;background:var(--bg3);border-radius:1px;overflow:hidden}
+.loader-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));
+border-radius:1px;transition:width .4s var(--transition)}
+.loader-percent{font-family:var(--mono);font-size:.75rem;color:var(--gray2);margin-top:1rem}
+/* SCROLL PROGRESS */
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));
+z-index:99998;transition:width .1s linear;box-shadow:0 0 10px var(--accent-glow)}
+/* NAVBAR */
+#navbar{position:fixed;top:1rem;left:50%;transform:translateX(-50%);z-index:9999;
+padding:.7rem 1.5rem;border-radius:50px;
+background:rgba(10,10,10,.7);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
+border:1px solid var(--glass-border);transition:all .4s var(--transition);max-width:95vw}
+#navbar.scrolled{background:rgba(10,10,10,.9);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.nav-inner{display:flex;align-items:center;gap:1.5rem}
+.nav-brand{font-weight:700;font-size:1rem;letter-spacing:2px;white-space:nowrap;
+background:linear-gradient(135deg,var(--white),var(--accent));-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:.2rem;align-items:center}
+.nav-links a{padding:.5rem .8rem;font-size:.8rem;font-weight:500;color:var(--gray);
+border-radius:25px;transition:all .3s var(--transition);white-space:nowrap;letter-spacing:.3px}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:var(--glass2)}
+.nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.3rem;
+padding:.5rem;cursor:pointer}
+.hacker-toggle{background:none;border:1px solid var(--glass-border);color:var(--gray);
+padding:.4rem .8rem;border-radius:20px;font-size:.7rem;font-family:var(--mono);
+transition:all .3s;cursor:pointer;white-space:nowrap}
+.hacker-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.hacker-toggle.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+/* MOBILE MENU */
+#mobile-menu{position:fixed;inset:0;z-index:99997;background:rgba(10,10,10,.95);
+backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);display:flex;flex-direction:column;
+align-items:center;justify-content:center;gap:1.5rem;opacity:0;visibility:hidden;
+transition:all .4s var(--transition)}
+#mobile-menu.open{opacity:1;visibility:visible}
+#mobile-menu a{font-size:1.5rem;font-weight:600;color:var(--gray);transition:all .3s;
+transform:translateY(20px);opacity:0}
+#mobile-menu.open a{transform:translateY(0);opacity:1;color:var(--white)}
+#mobile-menu a:hover{color:var(--accent)}
+.mobile-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;
+color:var(--white);font-size:1.5rem;cursor:pointer}
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;
+overflow:hidden;padding:6rem 2rem 4rem}
+.hero-bg{position:absolute;inset:0;z-index:0}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-gradient{position:absolute;inset:0;
+background:radial-gradient(ellipse at 30% 50%,rgba(230,57,70,.08) 0%,transparent 60%),
+radial-gradient(ellipse at 70% 50%,rgba(230,57,70,.05) 0%,transparent 50%);z-index:1}
+body.hacker-mode .hero-gradient{
+background:radial-gradient(ellipse at 30% 50%,rgba(0,255,65,.08) 0%,transparent 60%),
+radial-gradient(ellipse at 70% 50%,rgba(0,255,65,.05) 0%,transparent 50%)}
+.hero-grid{position:absolute;inset:0;
+background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+background-size:60px 60px;z-index:1;animation:gridMove 20s linear infinite}
+@keyframes gridMove{0%{transform:translate(0,0)}100%{transform:translate(60px,60px)}}
+.hero-noise{position:absolute;inset:0;opacity:.03;z-index:2;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:10;text-align:center;max-width:900px}
+.hero-greeting{font-size:.9rem;color:var(--accent);font-weight:500;letter-spacing:3px;
+text-transform:uppercase;margin-bottom:1rem;font-family:var(--mono)}
+.hero-name{font-size:clamp(2.5rem,8vw,6rem);font-weight:800;letter-spacing:-2px;line-height:1;
+margin-bottom:1rem;background:linear-gradient(135deg,var(--white) 0%,var(--gray) 50%,var(--accent) 100%);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+animation:heroGlow 4s ease-in-out infinite alternate}
+@keyframes heroGlow{0%{filter:brightness(1)}100%{filter:brightness(1.2)}}
+.hero-role{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--accent);font-weight:600;
+letter-spacing:4px;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-desc{font-size:clamp(.9rem,1.5vw,1.1rem);color:var(--gray);max-width:600px;
+margin:0 auto 2.5rem;line-height:1.8}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{padding:.9rem 2.2rem;background:var(--accent);color:var(--bg);font-weight:600;
+font-size:.9rem;border:none;border-radius:50px;letter-spacing:.5px;
+transition:all .4s var(--transition);position:relative;overflow:hidden}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px var(--accent-glow)}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,
+rgba(255,255,255,.2),transparent);opacity:0;transition:opacity .3s}
+.btn-primary:hover::after{opacity:1}
+.btn-secondary{padding:.9rem 2.2rem;background:transparent;color:var(--white);font-weight:600;
+font-size:.9rem;border:1px solid var(--glass-border);border-radius:50px;letter-spacing:.5px;
+transition:all .4s var(--transition)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);
+box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:10;
+display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--gray2);font-size:.75rem}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);
+animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;height:40px}50%{opacity:1;height:50px}}
+/* CLOCK WIDGET */
+.clock-widget{position:fixed;bottom:2rem;left:2rem;z-index:9990;padding:.8rem 1.2rem;
+background:rgba(10,10,10,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border:1px solid var(--glass-border);border-radius:16px;font-family:var(--mono);
+font-size:.75rem;color:var(--gray);display:flex;flex-direction:column;gap:.2rem}
+.clock-time{font-size:1.1rem;font-weight:700;color:var(--white)}
+.clock-date{color:var(--gray2)}
+/* SECTIONS */
+.section{padding:6rem 2rem;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{font-family:var(--mono);font-size:.75rem;color:var(--accent);letter-spacing:4px;
+text-transform:uppercase;margin-bottom:.8rem;font-weight:500}
+.section-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-1px;
+margin-bottom:1rem;line-height:1.2}
+.section-subtitle{font-size:1rem;color:var(--gray);max-width:600px;line-height:1.8;margin-bottom:3rem}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text p{color:var(--gray);line-height:2;margin-bottom:1.5rem;font-size:.95rem}
+.about-text strong{color:var(--white);font-weight:600}
+.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.about-highlight{padding:1.2rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:16px;transition:all .3s var(--transition)}
+.about-highlight:hover{border-color:var(--accent);transform:translateY(-2px)}
+.about-highlight .num{font-size:1.5rem;font-weight:800;color:var(--accent);font-family:var(--mono)}
+.about-highlight .label{font-size:.8rem;color:var(--gray);margin-top:.3rem}
+/* 3D PROFILE CARD */
+.profile-card-wrap{perspective:1000px;display:flex;justify-content:center}
+.profile-card{width:320px;padding:2.5rem;background:var(--glass);
+border:1px solid var(--glass-border);border-radius:24px;text-align:center;
+transition:transform .6s var(--transition),box-shadow .6s var(--transition);
+transform-style:preserve-3d;position:relative;overflow:hidden}
+.profile-card::before{content:'';position:absolute;inset:-2px;border-radius:24px;
+background:conic-gradient(from 180deg,transparent,var(--accent),transparent);opacity:0;
+transition:opacity .4s;z-index:-1;animation:borderSpin 4s linear infinite}
+@keyframes borderSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.profile-card:hover::before{opacity:.5}
+.profile-card:hover{box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.profile-avatar{width:100px;height:100px;border-radius:50%;margin:0 auto 1.5rem;
+background:linear-gradient(135deg,var(--accent),var(--bg3));display:flex;align-items:center;
+justify-content:center;font-size:2.5rem;border:3px solid var(--glass-border);position:relative}
+.profile-avatar::after{content:'';position:absolute;bottom:4px;right:4px;width:16px;height:16px;
+background:var(--green);border-radius:50%;border:3px solid var(--bg);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,65,.4)}50%{box-shadow:0 0 0 8px rgba(0,255,65,0)}}
+.profile-name{font-size:1.3rem;font-weight:700;margin-bottom:.3rem}
+.profile-role{font-size:.85rem;color:var(--accent);font-weight:500;margin-bottom:.5rem}
+.profile-status{font-size:.75rem;color:var(--green);font-family:var(--mono);display:flex;
+align-items:center;justify-content:center;gap:.4rem}
+.profile-status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%}
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.skill-item{padding:1.5rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:16px;transition:all .3s var(--transition)}
+.skill-item:hover{border-color:var(--accent);transform:translateY(-3px)}
+.skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
+.skill-name{font-weight:600;font-size:.9rem}
+.skill-percent{font-family:var(--mono);font-size:.8rem;color:var(--accent)}
+.skill-bar{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));
+border-radius:2px;width:0;transition:width 1.5s var(--transition)}
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.service-card{padding:2rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:20px;transition:all .4s var(--transition);position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s}
+.service-card:hover::before{opacity:1}
+.service-card:hover{border-color:var(--accent);transform:translateY(-5px);
+box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.service-icon{width:50px;height:50px;border-radius:14px;
+background:linear-gradient(135deg,var(--accent-glow),transparent);
+display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem;
+border:1px solid var(--glass-border)}
+.service-title{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.service-desc{font-size:.85rem;color:var(--gray);line-height:1.7}
+/* PORTFOLIO */
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.portfolio-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;
+overflow:hidden;transition:all .4s var(--transition);cursor:pointer}
+.portfolio-card:hover{border-color:var(--accent);transform:translateY(-5px);
+box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.portfolio-thumb{height:200px;background:linear-gradient(135deg,var(--bg3),var(--bg2));
+display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
+.portfolio-thumb::after{content:'Ko\'rish →';position:absolute;inset:0;background:rgba(0,0,0,.7);
+display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:600;
+color:var(--accent);opacity:0;transition:opacity .3s}
+.portfolio-card:hover .portfolio-thumb::after{opacity:1}
+.portfolio-info{padding:1.5rem}
+.portfolio-info h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+.portfolio-info p{font-size:.8rem;color:var(--gray)}
+.portfolio-tags{display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap}
+.portfolio-tag{padding:.2rem .6rem;background:var(--glass2);border-radius:20px;
+font-size:.7rem;color:var(--gray);font-family:var(--mono)}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:99996;background:rgba(0,0,0,.8);
+backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;
+justify-content:center;opacity:0;visibility:hidden;transition:all .4s var(--transition);padding:2rem}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal-content{background:var(--bg2);border:1px solid var(--glass-border);border-radius:24px;
+max-width:600px;width:100%;padding:2.5rem;transform:scale(.9) translateY(20px);
+transition:transform .4s var(--transition);max-height:80vh;overflow-y:auto}
+.modal-overlay.open .modal-content{transform:scale(1) translateY(0)}
+.modal-close{float:right;background:none;border:none;color:var(--gray);font-size:1.5rem;
+cursor:pointer;transition:color .3s}
+.modal-close:hover{color:var(--accent)}
+.modal-title{font-size:1.5rem;font-weight:700;margin:1rem 0}
+.modal-desc{color:var(--gray);line-height:1.8;font-size:.9rem}
+.modal-tech{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.modal-tech span{padding:.3rem .8rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:20px;font-size:.75rem;font-family:var(--mono);color:var(--accent)}
+/* TIMELINE */
+.timeline{position:relative;padding-left:3rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+background:linear-gradient(to bottom,var(--accent),var(--bg3))}
+.timeline-item{position:relative;margin-bottom:2.5rem;padding-left:2rem}
+.timeline-item::before{content:'';position:absolute;left:-3.55rem;top:.3rem;width:14px;height:14px;
+border-radius:50%;background:var(--bg);border:2px solid var(--accent);z-index:1;
+transition:all .3s var(--transition)}
+.timeline-item:hover::before{background:var(--accent);box-shadow:0 0 20px var(--accent-glow)}
+.timeline-year{font-family:var(--mono);font-size:.75rem;color:var(--accent);margin-bottom:.3rem}
+.timeline-title{font-size:1.1rem;font-weight:700;margin-bottom:.3rem}
+.timeline-desc{font-size:.85rem;color:var(--gray);line-height:1.7}
+/* BADGES */
+.badges-grid{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.badge{padding:1rem 1.5rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:50px;display:flex;align-items:center;gap:.6rem;transition:all .3s var(--transition);
+font-size:.85rem;font-weight:600}
+.badge:hover{border-color:var(--accent);transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.badge-icon{font-size:1.2rem}
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.testimonial-card{padding:2rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:20px;transition:all .3s var(--transition);position:relative}
+.testimonial-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.testimonial-card::before{content:'"';position:absolute;top:1rem;right:1.5rem;font-size:3rem;
+color:var(--accent);opacity:.2;font-family:Georgia,serif}
+.testimonial-text{font-size:.9rem;color:var(--gray);line-height:1.8;font-style:italic;margin-bottom:1rem}
+.testimonial-author{font-size:.8rem;font-weight:600;color:var(--white)}
+.testimonial-role{font-size:.7rem;color:var(--gray2)}
+/* FAQ */
+.faq-item{border:1px solid var(--glass-border);border-radius:16px;margin-bottom:1rem;
+overflow:hidden;background:var(--glass);transition:border-color .3s}
+.faq-item:hover,.faq-item.open{border-color:var(--accent)}
+.faq-question{padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;
+cursor:pointer;font-weight:600;font-size:.95rem;transition:color .3s}
+.faq-question:hover{color:var(--accent)}
+.faq-icon{font-size:1.2rem;transition:transform .3s var(--transition);color:var(--accent)}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s var(--transition),padding .4s}
+.faq-item.open .faq-answer{max-height:200px}
+.faq-answer p{padding:0 1.5rem 1.2rem;color:var(--gray);font-size:.85rem;line-height:1.8}
+/* TERMINAL */
+.terminal-wrap{background:var(--bg);border:1px solid var(--glass-border);border-radius:16px;
+overflow:hidden;max-width:800px;margin:0 auto}
+.terminal-header{padding:.8rem 1.2rem;background:var(--bg2);display:flex;align-items:center;gap:.5rem;
+border-bottom:1px solid var(--glass-border)}
+.terminal-dot{width:10px;height:10px;border-radius:50%}
+.terminal-dot.r{background:#ff5f57}.terminal-dot.y{background:#febc2e}.terminal-dot.g{background:#28c840}
+.terminal-title{font-family:var(--mono);font-size:.75rem;color:var(--gray2);margin-left:.5rem}
+.terminal-body{padding:1.5rem;height:400px;overflow-y:auto;font-family:var(--mono);font-size:.8rem;
+line-height:1.8}
+.terminal-body::-webkit-scrollbar{width:4px}
+.terminal-body::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:2px}
+.terminal-output{white-space:pre-wrap;word-break:break-all}
+.terminal-output .cmd{color:var(--accent)}
+.terminal-output .result{color:var(--gray)}
+.terminal-output .error{color:#ff5f57}
+.terminal-output .success{color:var(--green)}
+.terminal-input-line{display:flex;align-items:center;gap:.5rem;margin-top:.5rem}
+.terminal-prompt{color:var(--accent);white-space:nowrap}
+.terminal-input{background:none;border:none;color:var(--white);font-family:var(--mono);
+font-size:.8rem;flex:1;outline:none;caret-color:var(--accent)}
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.stat-card{padding:2rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:20px;text-align:center;transition:all .3s var(--transition)}
+.stat-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.stat-num{font-size:2.5rem;font-weight:800;color:var(--accent);font-family:var(--mono)}
+.stat-label{font-size:.85rem;color:var(--gray);margin-top:.3rem}
+/* SERVER STATUS */
+.status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.status-item{padding:1.2rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:14px;display:flex;align-items:center;gap:1rem;transition:all .3s var(--transition)}
+.status-item:hover{border-color:var(--green)}
+.status-dot{width:10px;height:10px;border-radius:50%;background:var(--green);
+box-shadow:0 0 10px var(--green-glow);animation:pulse 2s infinite}
+.status-info h4{font-size:.85rem;font-weight:600}
+.status-info p{font-size:.7rem;color:var(--gray2);font-family:var(--mono)}
+/* SECURITY */
+.security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.security-item{padding:1.5rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:16px;display:flex;align-items:center;gap:1rem;transition:all .3s var(--transition)}
+.security-item:hover{border-color:var(--accent)}
+.security-icon{font-size:1.5rem}
+.security-text h4{font-size:.9rem;font-weight:600}
+.security-text p{font-size:.75rem;color:var(--gray2)}
+/* LANGUAGES */
+.lang-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.lang-card{padding:1.5rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:16px;text-align:center;transition:all .3s var(--transition)}
+.lang-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.lang-flag{font-size:2rem;margin-bottom:.5rem}
+.lang-name{font-weight:600;font-size:.95rem;margin-bottom:.2rem}
+.lang-level{font-size:.75rem;color:var(--accent);font-family:var(--mono)}
+/* STORY */
+.story-content{max-width:700px;margin:0 auto}
+.story-content p{color:var(--gray);line-height:2;margin-bottom:1.5rem;font-size:.95rem}
+.story-content p:first-letter{font-size:2rem;font-weight:800;color:var(--accent);float:left;
+margin-right:.5rem;line-height:1}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.contact-card{padding:1.5rem;background:var(--glass);border:1px solid var(--glass-border);
+border-radius:16px;display:flex;align-items:center;gap:1rem;transition:all .4s var(--transition);
+cursor:pointer;text-decoration:none}
+.contact-card:hover{border-color:var(--accent);transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.contact-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;
+justify-content:center;font-size:1.3rem;background:linear-gradient(135deg,var(--accent-glow),transparent);
+border:1px solid var(--glass-border);flex-shrink:0}
+.contact-info h4{font-size:.95rem;font-weight:600}
+.contact-info p{font-size:.8rem;color:var(--gray)}
+/* FLOATING CONTACT */
+.float-contact{position:fixed;bottom:2rem;right:2rem;z-index:9990;width:56px;height:56px;
+border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;
+font-size:1.3rem;box-shadow:0 8px 30px var(--accent-glow);transition:all .3s var(--transition);
+cursor:pointer;border:none;color:var(--bg)}
+.float-contact:hover{transform:scale(1.1);box-shadow:0 12px 40px var(--accent-glow)}
+/* FOOTER */
+#footer{padding:3rem 2rem;border-top:1px solid var(--glass-border);text-align:center}
+.footer-brand{font-size:1.2rem;font-weight:700;letter-spacing:2px;margin-bottom:.5rem}
+.footer-copy{font-size:.8rem;color:var(--gray2);margin-bottom:.5rem}
+.footer-status{font-family:var(--mono);font-size:.7rem;color:var(--green);display:flex;
+align-items:center;justify-content:center;gap:.4rem}
+.footer-status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;
+animation:pulse 2s infinite}
+/* MATRIX RAIN */
+#matrix-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;
+transition:opacity .5s}
+body.hacker-mode #matrix-canvas{opacity:.15}
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s var(--transition)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* MOBILE NAV */
+.mobile-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9995;
+background:rgba(10,10,10,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-top:1px solid var(--glass-border);padding:.5rem 0;padding-bottom:env(safe-area-inset-bottom)}
+.mobile-bottom-nav-inner{display:flex;justify-content:space-around;align-items:center}
+.mobile-nav-item{display:flex;flex-direction:column;align-items:center;gap:.2rem;
+color:var(--gray2);font-size:.6rem;padding:.3rem .5rem;transition:color .3s;
+text-decoration:none;cursor:pointer;background:none;border:none;font-family:var(--font)}
+.mobile-nav-item:hover,.mobile-nav-item.active{color:var(--accent)}
+.mobile-nav-item .icon{font-size:1.2rem}
+/* TOAST */
+.toast{position:fixed;bottom:6rem;left:50%;transform:translateX(-50%) translateY(20px);
+z-index:99999;padding:.8rem 1.5rem;background:var(--bg2);border:1px solid var(--accent);
+border-radius:12px;font-size:.85rem;color:var(--white);opacity:0;visibility:hidden;
+transition:all .4s var(--transition);font-family:var(--mono)}
+.toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+/* RESPONSIVE */
+@media(max-width:1024px){
+.about-grid{grid-template-columns:1fr;gap:2rem}
+.profile-card-wrap{order:-1}
+.skills-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+#navbar{top:.5rem;padding:.5rem 1rem}
+.nav-links{display:none}
+.nav-toggle{display:block}
+.hacker-toggle{font-size:.6rem;padding:.3rem .6rem}
+.section{padding:4rem 1.2rem}
+.hero-btns{flex-direction:column;align-items:center}
+.btn-primary,.btn-secondary{width:100%;max-width:280px;text-align:center}
+.clock-widget{display:none}
+.mobile-bottom-nav{display:block}
+.float-contact{bottom:5rem;right:1rem;width:48px;height:48px;font-size:1.1rem}
+.about-highlights{grid-template-columns:1fr}
+.portfolio-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:1fr 1fr}
+.terminal-body{height:300px;font-size:.7rem}
+.profile-card{width:100%;max-width:320px}
+}
+@media(max-width:480px){
+.hero-name{letter-spacing:-1px}
+.section-title{font-size:1.5rem}
+.stats-grid{grid-template-columns:1fr}
+.badges-grid{justify-content:flex-start}
+.services-grid{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- MATRIX CANVAS -->
+<canvas id="matrix-canvas"></canvas>
+
+<!-- LOADER -->
+<div id="loader">
+<div class="loader-content">
+<div class="loader-logo">SUNNAT SHUKUROV</div>
+<div class="loader-lines">
+<div class="loader-line" id="ll1">Tizim yuklanmoqda...</div>
+<div class="loader-line" id="ll2">Xavfsizlik modullari ishga tushmoqda...</div>
+<div class="loader-line" id="ll3">Server ulanmoqda...</div>
+<div class="loader-line" id="ll4">Ruxsat berildi ✓</div>
+</div>
+<div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+<div class="loader-percent" id="loaderPercent">0%</div>
+</div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+<div class="nav-inner">
+<a href="#hero" class="nav-brand">SS</a>
+<div class="nav-links" id="navLinks">
+<a href="#hero">Bosh sahifa</a>
+<a href="#about">Men haqimda</a>
+<a href="#skills">Ko'nikmalar</a>
+<a href="#services">Xizmatlar</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#terminal">Terminal</a>
+<a href="#contact">Bog'lanish</a>
+</div>
+<button class="hacker-toggle" id="hackerToggle" title="Hacker Mode">⟨/⟩ HACKER</button>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+</div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+<button class="mobile-close" id="mobileClose" aria-label="Close">✕</button>
+<a href="#hero" class="mm-link">Bosh sahifa</a>
+<a href="#about" class="mm-link">Men haqimda</a>
+<a href="#skills" class="mm-link">Ko'nikmalar</a>
+<a href="#services" class="mm-link">Xizmatlar</a>
+<a href="#portfolio" class="mm-link">Portfolio</a>
+<a href="#terminal" class="mm-link">Terminal</a>
+<a href="#contact" class="mm-link">Bog'lanish</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+<div class="hero-bg">
+<canvas id="hero-canvas"></canvas>
+<div class="hero-gradient"></div>
+<div class="hero-grid"></div>
+<div class="hero-noise"></div>
+</div>
+<div class="hero-content">
+<div class="hero-greeting" id="heroGreeting"></div>
+<h1 class="hero-name">SUNNAT SHUKUROV</h1>
+<div class="hero-role">Linux Systems Specialist</div>
+<p class="hero-desc">Zamonaviy tizimlar, serverlar, xavfsizlik va professional IT yechimlar.</p>
+<div class="hero-btns">
+<a href="#contact" class="btn-primary">Men bilan bog'lanish</a>
+<a href="#portfolio" class="btn-secondary">Loyihalarni ko'rish</a>
+</div>
+</div>
+<div class="hero-scroll">
+<span>Pastga aylantiring</span>
+<div class="scroll-line"></div>
+</div>
+</section>
+
+<!-- CLOCK WIDGET -->
+<div class="clock-widget" id="clockWidget">
+<div class="clock-time" id="clockTime">00:00:00</div>
+<div class="clock-date" id="clockDate">--</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+<div class="section-inner">
+<div class="about-grid">
+<div class="about-text reveal">
+<div class="section-label">// Men haqimda</div>
+<h2 class="section-title">Kim men?</h2>
+<p>Men <strong>Sunnat Shukurov</strong> — Linux tizimlari mutaxassisi, IT talabasi va kiberxavfsizlik o'rganuvchisiman. Zamonaviy texnologiyalar, serverlar va xavfsizlik tizimlari bilan ishlayman.</p>
+<p>3-4 tildan bemalol foydalana olaman va odamlarga <strong>texnik yordam</strong> bera olaman. Serverlar, xavfsizlik, zamonaviy texnologiyalar va IT tizimlariga qiziqaman.</p>
+<div class="about-highlights">
+<div class="about-highlight"><div class="num">3-4</div><div class="label">Til bilimi</div></div>
+<div class="about-highlight"><div class="num">24/7</div><div class="label">Faoliyat</div></div>
+<div class="about-highlight"><div class="num">100+</div><div class="label">Yechilgan muammo</div></div>
+<div class="about-highlight"><div class="num">50+</div><div class="label">Mamnun foydalanuvchi</div></div>
+</div>
+</div>
+<div class="profile-card-wrap reveal">
+<div class="profile-card" id="profileCard">
+<div class="profile-avatar">👨‍💻</div>
+<div class="profile-name">Sunnat Shukurov</div>
+<div class="profile-role">Linux Systems Specialist</div>
+<div class="profile-status">Online</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Ko'nikmalar</div>
+<h2 class="section-title reveal">Texnik ko'nikmalarim</h2>
+<p class="section-subtitle reveal">Yillar davomida o'rgangan va rivojlantirgan ko'nikmalarim.</p>
+<div class="skills-grid">
+<div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Linux Systems</span><span class="skill-percent">92%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
+<div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Networking</span><span class="skill-percent">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+<div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Cybersecurity</span><span class="skill-percent">78%</span></div><div class="skill-bar"><div class="skill-fill" data-width="78"></div></div></div>
+<div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Server Setup</span><span class="skill-percent">88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+<div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Technical Support</span><span class="skill-percent">95%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></div>
+<div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Web Development</span><span class="skill-percent">70%</span></div><div class="skill-bar"><div class="skill-fill" data-width="70"></div></div></div>
+<div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Languages</span><span class="skill-percent">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+<div class="skill-item reveal"><div class="skill-header"><span class="skill-name">Problem Solving</span><span class="skill-percent">93%</span></div><div class="skill-bar"><div class="skill-fill" data-width="93"></div></div></div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Xizmatlar</div>
+<h2 class="section-title reveal">Nima qila olaman?</h2>
+<p class="section-subtitle reveal">Professional darajada ko'rsatadigan xizmatlarim.</p>
+<div class="services-grid">
+<div class="service-card reveal"><div class="service-icon">🐧</div><div class="service-title">Linux o'rnatish</div><div class="service-desc">Har qanday Linux distributivini professional tarzda o'rnatish va sozlash.</div></div>
+<div class="service-card reveal"><div class="service-icon">🖥️</div><div class="service-title">Server sozlash</div><div class="service-desc">Web server, database server va boshqa serverlarni sozlash va boshqarish.</div></div>
+<div class="service-card reveal"><div class="service-icon">🛠️</div><div class="service-title">Texnik yordam</div><div class="service-desc">Kompyuter va tizim muammolarini tezkor hal qilish va maslahat berish.</div></div>
+<div class="service-card reveal"><div class="service-icon">🌐</div><div class="service-title">Sayt yaratish</div><div class="service-desc">Zamonaviy va responsive veb-saytlar yaratish va deploy qilish.</div></div>
+<div class="service-card reveal"><div class="service-icon">🔒</div><div class="service-title">Xavfsizlik maslahatlari</div><div class="service-desc">Tizim xavfsizligini tekshirish va himoya choralarini ko'rish.</div></div>
+<div class="service-card reveal"><div class="service-icon">📡</div><div class="service-title">Tarmoq sozlash</div><div class="service-desc">Lokal va korporativ tarmoqlarni sozlash va monitoring qilish.</div></div>
+<div class="service-card reveal"><div class="service-icon">🖱️</div><div class="service-title">Masofadan yordam</div><div class="service-desc">Internet orqali masofadan texnik yordam va muammolarni hal qilish.</div></div>
+</div>
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Portfolio</div>
+<h2 class="section-title reveal">Loyihalarim</h2>
+<p class="section-subtitle reveal">Amalga oshirgan asosiy loyihalarim va ishlanmalarim.</p>
+<div class="portfolio-grid">
+<div class="portfolio-card reveal" data-modal="0"><div class="portfolio-thumb">🛡️</div><div class="portfolio-info"><h3>Cybersecurity Website</h3><p>Xavfsizlik bo'yicha ma'lumot portali</p><div class="portfolio-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>Security</span></div></div></div>
+<div class="portfolio-card reveal" data-modal="1"><div class="portfolio-thumb">🖥️</div><div class="portfolio-info"><h3>Linux Server Setup</h3><p>To'liq server infratuzilmasini sozlash</p><div class="portfolio-tags"><span>Linux</span><span>Nginx</span><span>SSH</span><span>Firewall</span></div></div></div>
+<div class="portfolio-card reveal" data-modal="2"><div class="portfolio-thumb">💼</div><div class="portfolio-info"><h3>Personal Portfolio</h3><p>Shaxsiy portfolio veb-sayti</p><div class="portfolio-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div></div>
+<div class="portfolio-card reveal" data-modal="3"><div class="portfolio-thumb">⚙️</div><div class="portfolio-info"><h3>Automation Tools</h3><p>Tizim avtomatlashtirish skriptlari</p><div class="portfolio-tags"><span>Bash</span><span>Python</span><span>Cron</span></div></div></div>
+<div class="portfolio-card reveal" data-modal="4"><div class="portfolio-thumb">📊</div><div class="portfolio-info"><h3>Network Dashboard</h3><p>Tarmoq monitoring paneli</p><div class="portfolio-tags"><span>Monitoring</span><span>Dashboard</span><span>API</span></div></div></div>
+</div>
+</div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+<div class="modal-content">
+<button class="modal-close" id="modalClose">✕</button>
+<div id="modalBody"></div>
+</div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Tajriba</div>
+<h2 class="section-title reveal">Mening yo'lim</h2>
+<p class="section-subtitle reveal">IT sohasidagi rivojlanish bosqichlarim.</p>
+<div class="timeline reveal">
+<div class="timeline-item"><div class="timeline-year">2020</div><div class="timeline-title">Boshlanish</div><div class="timeline-desc">IT olamiga birinchi qadamlar. Kompyuter va texnologiyalarga qiziqish paydo bo'ldi.</div></div>
+<div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-title">Linux o'rganish</div><div class="timeline-desc">Linux operatsion tizimini o'rganishni boshladim. Ubuntu, Debian va boshqa distributivlar bilan ishladim.</div></div>
+<div class="timeline-item"><div class="timeline-year">2022</div><div class="timeline-title">Server tajribasi</div><div class="timeline-desc">Birinchi serverlarni sozlash va boshqarish tajribasi. Nginx, Apache, SSH konfiguratsiyalari.</div></div>
+<div class="timeline-item"><div class="timeline-year">2023</div><div class="timeline-title">Portfolio yaratish</div><div class="timeline-desc">O'z bilimlarimni namoyish qilish uchun loyihalar va portfolio yaratishni boshladim.</div></div>
+<div class="timeline-item"><div class="timeline-year">2024-2025</div><div class="timeline-title">Professional daraja</div><div class="timeline-desc">Kiberxavfsizlik, tarmoq boshqaruvi va professional IT yechimlar sohasida faoliyat.</div></div>
+</div>
+</div>
+</section>
+
+<!-- BADGES -->
+<section id="badges" class="section">
+<div class="section-inner" style="text-align:center">
+<div class="section-label reveal">// Yutuqlar</div>
+<h2 class="section-title reveal">Erishgan natijalari</h2>
+<div class="badges-grid reveal" style="margin-top:2rem">
+<div class="badge"><span class="badge-icon">🐧</span> Linux Expert</div>
+<div class="badge"><span class="badge-icon">🧠</span> Cyber Mind</div>
+<div class="badge"><span class="badge-icon">⚡</span> Fast Learner</div>
+<div class="badge"><span class="badge-icon">🛠️</span> Support Pro</div>
+<div class="badge"><span class="badge-icon">🌍</span> Multi Language</div>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<section id="stats" class="section">
+<div class="section-inner">
+<div class="stats-grid">
+<div class="stat-card reveal"><div class="stat-num" data-target="100">0</div><div class="stat-label">Yechilgan muammo</div></div>
+<div class="stat-card reveal"><div class="stat-num" data-target="50">0</div><div class="stat-label">Mamnun foydalanuvchi</div></div>
+<div class="stat-card reveal"><div class="stat-num" data-target="24">0</div><div class="stat-label">Soat / 7 kun faoliyat</div></div>
+<div class="stat-card reveal"><div class="stat-num" data-target="4">0</div><div class="stat-label">Til bilimi</div></div>
+</div>
+</div>
+</section>
+
+<!-- SERVER STATUS -->
+<section id="server-status" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Server holati</div>
+<h2 class="section-title reveal">Tizim holati</h2>
+<div class="status-grid" style="margin-top:2rem">
+<div class="status-item reveal"><div class="status-dot"></div><div class="status-info"><h4>ONLINE</h4><p>Tizim ishlamoqda</p></div></div>
+<div class="status-item reveal"><div class="status-dot"></div><div class="status-info"><h4>SECURE</h4><p>Xavfsizlik faol</p></div></div>
+<div class="status-item reveal"><div class="status-dot"></div><div class="status-info"><h4>FAST RESPONSE</h4><p>Tez javob berish</p></div></div>
+<div class="status-item reveal"><div class="status-dot"></div><div class="status-info"><h4>PROTECTED</h4><p>Himoyalangan</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- SECURITY -->
+<section id="security" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Xavfsizlik</div>
+<h2 class="section-title reveal">Xavfsizlik paneli</h2>
+<div class="security-grid" style="margin-top:2rem">
+<div class="security-item reveal"><div class="security-icon">🔥</div><div class="security-text"><h4>Firewall Active</h4><p>Xavfsizlik devori faol</p></div></div>
+<div class="security-item reveal"><div class="security-icon">🔐</div><div class="security-text"><h4>Encrypted</h4><p>Ma'lumotlar shifrlangan</p></div></div>
+<div class="security-item reveal"><div class="security-icon">✅</div><div class="security-text"><h4>Stable</h4><p>Tizim barqaror</p></div></div>
+<div class="security-item reveal"><div class="security-icon">🛡️</div><div class="security-text"><h4>Protected</h4><p>To'liq himoyalangan</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Fikrlar</div>
+<h2 class="section-title reveal">Mijozlar fikrlari</h2>
+<div class="testimonials-grid" style="margin-top:2rem">
+<div class="testimonial-card reveal"><div class="testimonial-text">Juda tez yordam berdi. Muammoni bir soat ichida hal qildi. Juda professional yondashuv!</div><div class="testimonial-author">Aziz K.</div><div class="testimonial-role">Tadbirkor</div></div>
+<div class="testimonial-card reveal"><div class="testimonial-text">Professional ishlaydi. Server sozlash bo'yicha juda yaxshi bilimga ega. Tavsiya qilaman!</div><div class="testimonial-author">Dilshod M.</div><div class="testimonial-role">Dasturchi</div></div>
+<div class="testimonial-card reveal"><div class="testimonial-text">Ishonchli mutaxassis. Har doim aloqada va tez javob beradi. Xavfsizlik bo'yicha maslahatlar juda foydali bo'ldi.</div><div class="testimonial-author">Nodira S.</div><div class="testimonial-role">IT menejeri</div></div>
+<div class="testimonial-card reveal"><div class="testimonial-text">Yordamidan mamnunman. Linux tizimini o'rnatish va sozlashda katta yordam berdi.</div><div class="testimonial-author">Jasur T.</div><div class="testimonial-role">Talaba</div></div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+<div class="section-inner" style="max-width:700px;margin:0 auto">
+<div class="section-label reveal">// Savollar</div>
+<h2 class="section-title reveal">Ko'p so'raladigan savollar</h2>
+<div style="margin-top:2rem">
+<div class="faq-item reveal"><div class="faq-question">Menga qanday bog'lansam bo'ladi?<span class="faq-icon">+</span></div><div class="faq-answer"><p>Telegram, Instagram yoki email orqali menga bog'lanishingiz mumkin. Sahifaning pastki qismidagi kontakt bo'limidan foydalaning.</p></div></div>
+<div class="faq-item reveal"><div class="faq-question">Qanday xizmatlar qilasiz?<span class="faq-icon">+</span></div><div class="faq-answer"><p>Linux o'rnatish, server sozlash, texnik yordam, sayt yaratish, xavfsizlik maslahatlari, tarmoq sozlash va masofadan yordam xizmatlarini ko'rsataman.</p></div></div>
+<div class="faq-item reveal"><div class="faq-question">Qaysi tizimlarda ishlaysiz?<span class="faq-icon">+</span></div><div class="faq-answer"><p>Asosan Linux tizimlari — Ubuntu, Debian, CentOS, Arch Linux va boshqa distributivlarda ishlayman. Windows va macOS bilan ham tajribam bor.</p></div></div>
+<div class="faq-item reveal"><div class="faq-question">Qancha vaqtda javob berasiz?<span class="faq-icon">+</span></div><div class="faq-answer"><p>Odatda 1-2 soat ichida javob beraman. Shoshilinch holatlarda darhol bog'lanishga harakat qilaman.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Tillar</div>
+<h2 class="section-title reveal">Til bilimlarim</h2>
+<div class="lang-grid" style="margin-top:2rem">
+<div class="lang-card reveal"><div class="lang-flag">🇺🇿</div><div class="lang-name">O'zbek tili</div><div class="lang-level">Ona tili</div></div>
+<div class="lang-card reveal"><div class="lang-flag">🇷🇺</div><div class="lang-name">Rus tili</div><div class="lang-level">Yaxshi</div></div>
+<div class="lang-card reveal"><div class="lang-flag">🇬🇧</div><div class="lang-name">Ingliz tili</div><div class="lang-level">O'rta</div></div>
+<div class="lang-card reveal"><div class="lang-flag">🌐</div><div class="lang-name">Boshqa</div><div class="lang-level">Asosiy</div></div>
+</div>
+</div>
+</section>
+
+<!-- STORY -->
+<section id="story" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Hikoya</div>
+<h2 class="section-title reveal">Mening IT sayohatim</h2>
+<div class="story-content reveal">
+<p>Hammasi oddiy qiziqishdan boshlandi. Kompyuter qanday ishlashini, internet orqasida nima yashiringanini bilishni xohlardim. Birinchi marta Linux terminalini ochganimda — butunlay boshqa dunyo ochildi.</p>
+<p>Kundan-kunga yangi narsalar o'rgandim. Serverlar sozlash, tarmoqlarni boshqarish, xavfsizlik tizimlarini o'rganish — har bir qadam meni yanada chuqurroq olib bordi. Bu yo'lda ko'p qiyinchiliklarga duch keldim, lekin har bir muammo meni kuchliroq qildi.</p>
+<p>Bugun men IT sohasida professional darajada ishlayman va o'z bilimlarimni boshqalar bilan bo'lishaman. Mening maqsadim — zamonaviy texnologiyalar yordamida odamlarga yordam berish va xavfsiz raqamli muhit yaratish.</p>
+</div>
+</div>
+</section>
+
+<!-- TERMINAL -->
+<section id="terminal" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Terminal</div>
+<h2 class="section-title reveal">Linux Terminal</h2>
+<p class="section-subtitle reveal">Haqiqiy Linux terminalini sinab ko'ring. <span style="color:var(--accent)">help</span> buyrug'ini yozing.</p>
+<div class="terminal-wrap reveal">
+<div class="terminal-header">
+<div class="terminal-dot r"></div>
+<div class="terminal-dot y"></div>
+<div class="terminal-dot g"></div>
+<span class="terminal-title">sunny@server:~</span>
+</div>
+<div class="terminal-body" id="terminalBody">
+<div class="terminal-output" id="terminalOutput"><span class="success">Xush kelibsiz! Buyruqlarni yozing. "help" — yordam.</span>
+</div>
+<div class="terminal-input-line">
+<span class="terminal-prompt">sunny@server:~$</span>
+<input type="text" class="terminal-input" id="terminalInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+<div class="section-inner">
+<div class="section-label reveal">// Bog'lanish</div>
+<h2 class="section-title reveal">Men bilan bog'laning</h2>
+<p class="section-subtitle reveal">Loyiha yoki savolingiz bormi? Bemalol murojaat qiling.</p>
+<div class="contact-grid">
+<a href="https://t.me/wskskw0" target="_blank" rel="noopener noreferrer" class="contact-card reveal">
+<div class="contact-icon">✈️</div>
+<div class="contact-info"><h4>Telegram</h4><p>@wskskw0</p></div>
+</a>
+<a href="https://instagram.com/s_lousm" target="_blank" rel="noopener noreferrer" class="contact-card reveal">
+<div class="contact-icon">📸</div>
+<div class="contact-info"><h4>Instagram</h4><p>@s_lousm</p></div>
+</a>
+<a href="mailto:shukurovsunnat464@gmail.com" class="contact-card reveal">
+<div class="contact-icon">📧</div>
+<div class="contact-info"><h4>Email</h4><p>shukurovsunnat464@gmail.com</p></div>
+</a>
+<div class="contact-card reveal" id="copyEmailBtn">
+<div class="contact-icon">📋</div>
+<div class="contact-info"><h4>Email nusxalash</h4><p>Bosing va nusxalang</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FLOATING CONTACT -->
+<a href="https://t.me/wskskw0" target="_blank" rel="noopener noreferrer" class="float-contact" title="Telegram">✈️</a>
+
+<!-- FOOTER -->
+<footer id="footer">
+<div class="footer-brand">SUNNAT SHUKUROV</div>
+<div class="footer-copy">© 2026 Sunnat Shukurov. Barcha huquqlar himoyalangan.</div>
+<div class="footer-status">ONLINE</div>
+</footer>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom-nav">
+<div class="mobile-bottom-nav-inner">
+<a href="#hero" class="mobile-nav-item"><span class="icon">🏠</span>Bosh</a>
+<a href="#about" class="mobile-nav-item"><span class="icon">👤</span>Haqimda</a>
+<a href="#skills" class="mobile-nav-item"><span class="icon">⚡</span>Ko'nikma</a>
+<a href="#terminal" class="mobile-nav-item"><span class="icon">💻</span>Terminal</a>
+<a href="#contact" class="mobile-nav-item"><span class="icon">📩</span>Aloqa</a>
+</div>
+</nav>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+'use strict';
+
+// ============ LOADER ============
+const loader=document.getElementById('loader');
+const loaderBar=document.getElementById('loaderBar');
+const loaderPercent=document.getElementById('loaderPercent');
+const lines=['ll1','ll2','ll3','ll4'];
+let progress=0;
+const loaderInterval=setInterval(()=>{
+progress+=Math.random()*15+5;
+if(progress>100)progress=100;
+loaderBar.style.width=progress+'%';
+loaderPercent.textContent=Math.floor(progress)+'%';
+if(progress>=25)document.getElementById(lines[0]).classList.add('active');
+if(progress>=50){document.getElementById(lines[0]).classList.remove('active');document.getElementById(lines[0]).classList.add('done');document.getElementById(lines[1]).classList.add('active');}
+if(progress>=75){document.getElementById(lines[1]).classList.remove('active');document.getElementById(lines[1]).classList.add('done');document.getElementById(lines[2]).classList.add('active');}
+if(progress>=100){
+document.getElementById(lines[2]).classList.remove('active');document.getElementById(lines[2]).classList.add('done');
+document.getElementById(lines[3]).classList.add('active');document.getElementById(lines[3]).classList.add('done');
+clearInterval(loaderInterval);
+setTimeout(()=>{loader.classList.add('hidden')},600);
+}
+},200);
+
+// ============ CURSOR ============
+const dot=document.getElementById('cursorDot');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx-4+'px';dot.style.top=my-4+'px'});
+(function animRing(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+document.querySelectorAll('a,button,.portfolio-card,.faq-question,.contact-card,.service-card').forEach(el=>{
+el.addEventListener('mouseenter',()=>{dot.classList.add('hover');ring.classList.add('hover')});
+el.addEventListener('mouseleave',()=>{dot.classList.remove('hover');ring.classList.remove('hover')});
+});
+if('ontouchstart' in window){dot.style.display='none';ring.style.display='none';document.body.style.cursor='auto'}
+
+// ============ SCROLL PROGRESS ============
+const scrollProg=document.getElementById('scroll-progress');
+window.addEventListener('scroll',()=>{
+const h=document.documentElement.scrollHeight-window.innerHeight;
+scrollProg.style.width=(window.scrollY/h*100)+'%';
+});
+
+// ============ NAVBAR ============
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50)});
+
+// Active nav link
+const sections=document.querySelectorAll('section[id]');
+const navLinksAll=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+let cur='';
+sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id});
+navLinksAll.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
+});
+
+// ============ MOBILE MENU ============
+const navToggle=document.getElementById('navToggle');
+const mobileMenu=document.getElementById('mobile-menu');
+const mobileClose=document.getElementById('mobileClose');
+navToggle.addEventListener('click',()=>mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click',()=>mobileMenu.classList.remove('open'));
+document.querySelectorAll('.mm-link').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+
+// ============ GREETING ============
+function setGreeting(){
+const h=new Date().getHours();
+let g='Xayrli kun';
+if(h>=5&&h<12)g='Xayrli tong';
+else if(h>=12&&h<18)g='Xayrli kun';
+else g='Xayrli kech';
+document.getElementById('heroGreeting').textContent='👋 '+g+', men';
+}
+setGreeting();
+
+// ============ CLOCK ============
+function updateClock(){
+const now=new Date();
+const opts={timeZone:'Asia/Tashkent'};
+document.getElementById('clockTime').textContent=now.toLocaleTimeString('uz-UZ',{...opts,hour:'2-digit',minute:'2-digit',second:'2-digit'});
+document.getElementById('clockDate').textContent=now.toLocaleDateString('uz-UZ',{...opts,weekday:'long',year:'numeric',month:'long',day:'numeric'});
+}
+updateClock();setInterval(updateClock,1000);
+
+// ============ HERO PARTICLES ============
+const hc=document.getElementById('hero-canvas');
+const hctx=hc.getContext('2d');
+let particles=[];
+function resizeHero(){hc.width=window.innerWidth;hc.height=window.innerHeight}
+resizeHero();window.addEventListener('resize',resizeHero);
+class Particle{
+constructor(){this.reset()}
+reset(){this.x=Math.random()*hc.width;this.y=Math.random()*hc.height;
+this.size=Math.random()*2+.5;this.speedX=(Math.random()-.5)*.5;this.speedY=(Math.random()-.5)*.5;
+this.opacity=Math.random()*.5+.1;this.life=Math.random()*200+100;this.maxLife=this.life}
+update(){this.x+=this.speedX;this.y+=this.speedY;this.life--;
+if(this.life<=0||this.x<0||this.x>hc.width||this.y<0||this.y>hc.height)this.reset()}
+draw(){const a=this.opacity*(this.life/this.maxLife);
+const isHacker=document.body.classList.contains('hacker-mode');
+const col=isHacker?`rgba(0,255,65,${a})`:`rgba(230,57,70,${a})`;
+hctx.beginPath();hctx.arc(this.x,this.y,this.size,0,Math.PI*2);hctx.fillStyle=col;hctx.fill()}
+}
+for(let i=0;i<80;i++)particles.push(new Particle());
+let heroMX=hc.width/2,heroMY=hc.height/2;
+document.addEventListener('mousemove',e=>{heroMX=e.clientX;heroMY=e.clientY});
+function animParticles(){
+hctx.clearRect(0,0,hc.width,hc.height);
+particles.forEach(p=>{p.update();p.draw()});
+// Connect nearby
+for(let i=0;i<particles.length;i++){
+for(let j=i+1;j<particles.length;j++){
+const dx=particles[i].x-particles[j].x;const dy=particles[i].y-particles[j].y;
+const dist=Math.sqrt(dx*dx+dy*dy);
+if(dist<120){
+const a=.05*(1-dist/120);
+const isH=document.body.classList.contains('hacker-mode');
+hctx.strokeStyle=isH?`rgba(0,255,65,${a})`:`rgba(230,57,70,${a})`;
+hctx.lineWidth=.5;hctx.beginPath();hctx.moveTo(particles[i].x,particles[i].y);
+hctx.lineTo(particles[j].x,particles[j].y);hctx.stroke();
+}
+}
+// Mouse interaction
+const mdx=particles[i].x-heroMX;const mdy=particles[i].y-heroMY;
+const mdist=Math.sqrt(mdx*mdx+mdy*mdy);
+if(mdist<150){
+const a=.15*(1-mdist/150);
+const isH=document.body.classList.contains('hacker-mode');
+hctx.strokeStyle=isH?`rgba(0,255,65,${a})`:`rgba(230,57,70,${a})`;
+hctx.lineWidth=1;hctx.beginPath();hctx.moveTo(particles[i].x,particles[i].y);
+hctx.lineTo(heroMX,heroMY);hctx.stroke();
+}
+}
+requestAnimationFrame(animParticles);
+}
+animParticles();
+
+// ============ 3D PROFILE CARD ============
+const pc=document.getElementById('profileCard');
+pc.addEventListener('mousemove',e=>{
+const r=pc.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width-.5;
+const y=(e.clientY-r.top)/r.height-.5;
+pc.style.transform=`rotateY(${x*20}deg) rotateX(${-y*20}deg) scale(1.02)`;
+});
+pc.addEventListener('mouseleave',()=>{pc.style.transform='rotateY(0) rotateX(0) scale(1)'});
+
+// ============ SCROLL REVEAL ============
+const reveals=document.querySelectorAll('.reveal');
+const revealObs=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+reveals.forEach(r=>revealObs.observe(r));
+
+// ============ SKILL BARS ============
+const skillFills=document.querySelectorAll('.skill-fill');
+const skillObs=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.width+'%';skillObs.unobserve(e.target)}});
+},{threshold:.5});
+skillFills.forEach(s=>skillObs.observe(s));
+
+// ============ COUNTER ANIMATION ============
+const statNums=document.querySelectorAll('.stat-num');
+const counterObs=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+const target=parseInt(e.target.dataset.target);
+let current=0;
+const inc=target/60;
+const timer=setInterval(()=>{
+current+=inc;
+if(current>=target){current=target;clearInterval(timer)}
+e.target.textContent=Math.floor(current)+'+';
+},30);
+counterObs.unobserve(e.target);
+}
+});
+},{threshold:.5});
+statNums.forEach(s=>counterObs.observe(s));
+
+// ============ FAQ ============
+document.querySelectorAll('.faq-question').forEach(q=>{
+q.addEventListener('click',()=>{
+const item=q.parentElement;
+document.querySelectorAll('.faq-item').forEach(f=>{if(f!==item)f.classList.remove('open')});
+item.classList.toggle('open');
+});
+});
+
+// ============ PORTFOLIO MODAL ============
+const modalData=[
+{title:'Cybersecurity Website',desc:'Kiberxavfsizlik bo\'yicha ma\'lumot portali. Foydalanuvchilarga xavfsizlik bo\'yicha maslahatlar, yangiliklar va qo\'llanmalar taqdim etiladi. Zamonaviy dizayn va tez ishlash tezligi bilan ajralib turadi.',tech:['HTML','CSS','JavaScript','Security Headers','SSL']},
+{title:'Linux Server Setup',desc:'To\'liq server infratuzilmasini sozlash loyihasi. Nginx web server, MySQL database, PHP backend, SSL sertifikat, firewall va monitoring tizimlarini o\'z ichiga oladi.',tech:['Ubuntu Server','Nginx','MySQL','UFW','SSH','Certbot']},
+{title:'Personal Portfolio',desc:'Shaxsiy portfolio veb-sayti. Zamonaviy dizayn, smooth animatsiyalar, responsive layout va premium foydalanuvchi tajribasi.',tech:['HTML5','CSS3','JavaScript','Responsive','Animation']},
+{title:'Automation Tools',desc:'Tizim avtomatlashtirish skriptlari to\'plami. Server monitoring, backup, deployment va maintenance jarayonlarini avtomatlashtirish.',tech:['Bash','Python','Cron','Systemd','Git']},
+{title:'Network Dashboard',desc:'Tarmoq monitoring paneli. Real-time tarmoq holati, trafik tahlili, xavfsizlik ogohlantirishlari va hisobotlar.',tech:['Dashboard','API','Monitoring','Charts','Real-time']}
+];
+const modalOverlay=document.getElementById('modalOverlay');
+const modalBody=document.getElementById('modalBody');
+document.querySelectorAll('.portfolio-card').forEach(c=>{
+c.addEventListener('click',()=>{
+const i=parseInt(c.dataset.modal);
+const d=modalData[i];
+modalBody.innerHTML=`<h2 class="modal-title">${d.title}</h2><p class="modal-desc">${d.desc}</p><div class="modal-tech">${d.tech.map(t=>`<span>${t}</span>`).join('')}</div>`;
+modalOverlay.classList.add('open');
+});
+});
+document.getElementById('modalClose').addEventListener('click',()=>modalOverlay.classList.remove('open'));
+modalOverlay.addEventListener('click',e=>{if(e.target===modalOverlay)modalOverlay.classList.remove('open')});
+
+// ============ TERMINAL ============
+const termInput=document.getElementById('terminalInput');
+const termOutput=document.getElementById('terminalOutput');
+const termBody=document.getElementById('terminalBody');
+let cmdHistory=[];let histIdx=-1;
+
+const commands={
+help:()=>`<span class="success">Mavjud buyruqlar:</span>
+  help        — Yordam
+  whoami      — Kim men
+  ls          — Fayllar ro'yxati
+  pwd         — Joriy katalog
+  uname -a    — Tizim ma'lumoti
+  clear       — Tozalash
+  history     — Buyruqlar tarixi
+  date        — Sana va vaqt
+  cal         — Kalendar
+  uptime      — Tizim ishlash vaqti
+  hostname    — Host nomi
+  neofetch    — Tizim haqida
+  ifconfig    — Tarmoq sozlamalari
+  ip a        — IP manzillar
+  ping        — Ping tekshirish
+  netstat     — Tarmoq ulanishlari
+  ss -tulpn   — Socket statistikasi
+  ps aux      — Jarayonlar
+  top         — Tizim yuklanishi
+  free -h     — Xotira holati
+  df -h       — Disk holati
+  cat /etc/passwd  — Foydalanuvchilar
+  cat /etc/os-release — OS ma'lumoti
+  mkdir       — Katalog yaratish
+  touch       — Fayl yaratish
+  rm          — Fayl o'chirish
+  chmod       — Ruxsat o'zgartirish
+  sudo        — Super foydalanuvchi
+  git status  — Git holati
+  git clone   — Git klonlash
+  ssh         — SSH ulanish
+  curl        — URL so'rov
+  nmap        — Port skanerlash
+  status      — Server holati
+  hack        — ???
+  matrix      — Matrix rejimi`,
+whoami:()=>`<span class="success">sunny</span> (Sunnat Shukurov — Linux Systems Specialist)`,
+ls:()=>`<span class="cmd">drwxr-xr-x</span>  projects/
+<span class="cmd">drwxr-xr-x</span>  scripts/
+<span class="cmd">drwxr-xr-x</span>  configs/
+<span class="cmd">-rw-r--r--</span>  README.md
+<span class="cmd">-rwxr-xr-x</span>  deploy.sh
+<span class="cmd">-rw-r--r--</span>  portfolio.html
+<span class="cmd">-rw-r--r--</span>  .bashrc`,
+pwd:()=>`/home/sunny`,
+'uname -a':()=>`Linux sunny-server 6.1.0-amd64 #1 SMP PREEMPT x86_64 GNU/Linux`,
+clear:()=>'__CLEAR__',
+history:()=>cmdHistory.map((c,i)=>`  ${i+1}  ${c}`).join('\n'),
+date:()=>`<span class="success">${new Date().toString()}</span>`,
+cal:()=>{const d=new Date();return`<span class="success">     ${d.toLocaleString('uz',{month:'long'})} ${d.getFullYear()}</span>
+Su Mo Tu We Th Fr Sa
+                1  2  3
+ 4  5  6  7  8  9 10
+11 12 13 14 15 16 17
+18 19 20 21 22 23 24
+25 26 27 28 29 30 31`},
+uptime:()=>`<span class="success">up 365 days, 24:00, 1 user, load average: 0.01, 0.02, 0.00</span>`,
+hostname:()=>`sunny-server`,
+neofetch:()=>`<span class="success">       _____</span>
+<span class="success">      /     \\</span>      <span class="cmd">sunny@server</span>
+<span class="success">     | () () |</span>     OS: Ubuntu 24.04 LTS
+<span class="success">      \\ --- /</span>      Kernel: 6.1.0-amd64
+<span class="success">       -----</span>       Shell: zsh 5.9
+                    Terminal: web-terminal
+                    CPU: Intel i7-12700K
+                    Memory: 2048MB / 16384MB`,
+ifconfig:()=>`eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>
+    inet <span class="success">192.168.1.100</span>  netmask 255.255.255.0
+    inet6 fe80::1  prefixlen 64
+    ether 00:1a:2b:3c:4d:5e  txqueuelen 1000
+    RX packets 1234567  bytes 987654321
+    TX packets 7654321  bytes 123456789`,
+'ip a':()=>`1: lo: <LOOPBACK,UP> mtu 65536
+    inet 127.0.0.1/8 scope host lo
+2: eth0: <BROADCAST,MULTICAST,UP> mtu 1500
+    inet <span class="success">192.168.1.100/24</span> brd 192.168.1.255 scope global eth0`,
+'ping google.com':()=>`PING google.com (142.250.185.78): 56 data bytes
+64 bytes from 142.250.185.78: icmp_seq=0 ttl=118 time=<span class="success">12.3 ms</span>
+64 bytes from 142.250.185.78: icmp_seq=1 ttl=118 time=<span class="success">11.8 ms</span>
+64 bytes from 142.250.185.78: icmp_seq=2 ttl=118 time=<span class="success">12.1 ms</span>
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, <span class="success">0% packet loss</span>`,
+'netstat -tulpn':()=>`Proto  Local Address     State       PID/Program
+tcp    0.0.0.0:22        LISTEN      1234/sshd
+tcp    0.0.0.0:80        LISTEN      5678/nginx
+tcp    0.0.0.0:443       LISTEN      5678/nginx
+tcp    0.0.0.0:3306      LISTEN      9012/mysqld`,
+'ss -tulpn':()=>`Netid  State   Local Address:Port
+tcp    LISTEN  0.0.0.0:22          users:(("sshd",pid=1234))
+tcp    LISTEN  0.0.0.0:80          users:(("nginx",pid=5678))
+tcp    LISTEN  0.0.0.0:443         users:(("nginx",pid=5678))`,
+'ps aux':()=>`USER    PID  %CPU %MEM   COMMAND
+root      1   0.0  0.1   /sbin/init
+root    234   0.0  0.2   /usr/sbin/sshd
+www     5678   0.1  0.5   nginx: worker process
+mysql   9012   0.3  2.1   /usr/sbin/mysqld
+sunny  12345   0.0  0.1   -zsh`,
+top:()=>`<span class="success">top - ${new Date().toLocaleTimeString()} up 365 days</span>
+Tasks: 128 total, 1 running, 127 sleeping
+%Cpu(s): <span class="success">2.3</span> us, 1.0 sy, 0.0 ni, 96.7 id
+MiB Mem:  16384.0 total, 12288.0 free, 2048.0 used
+MiB Swap:  4096.0 total, 4096.0 free, 0.0 used`,
+'free -h':()=>`              total    used    free    shared  available
+Mem:          <span class="success">16Gi</span>     2.0Gi   12Gi    256Mi   13Gi
+Swap:          4.0Gi    0B      4.0Gi`,
+'df -h':()=>`Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1       <span class="success">500G</span>   45G  430G   10% /
+tmpfs           8.0G   12M  8.0G    1% /dev/shm
+/dev/sda2       1.0T  200G  800G   20% /home`,
+'cat /etc/passwd':()=>`root:x:0:0:root:/root:/bin/bash
+sunny:x:1000:1000:Sunnat Shukurov:/home/sunny:/bin/zsh
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+mysql:x:27:27:MySQL Server:/var/lib/mysql:/bin/false`,
+'cat /etc/os-release':()=>`NAME="Ubuntu"
+VERSION="24.04 LTS (Noble Numbat)"
+ID=ubuntu
+PRETTY_NAME="<span class="success">Ubuntu 24.04 LTS</span>"
+HOME_URL="https://www.ubuntu.com/"`,
+'mkdir project':()=>`<span class="success">mkdir: katalog yaratildi: 'project'</span>`,
+'touch file.txt':()=>`<span class="success">touch: fayl yaratildi: 'file.txt'</span>`,
+'rm file.txt':()=>`<span class="success">rm: 'file.txt' o'chirildi</span>`,
+'chmod +x file.sh':()=>`<span class="success">chmod: 'file.sh' ga bajarish ruxsati berildi</span>`,
+sudo:()=>`<span class="error">[sudo] password for sunny: ********</span>
+<span class="success">sunny is in the sudoers file. Access granted.</span>`,
+'sudo apt update':()=>`Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease
+Reading package lists... <span class="success">Done</span>
+All packages are up to date.`,
+'sudo apt upgrade':()=>`Reading package lists... Done
+Calculating upgrade... Done
+<span class="success">0 upgraded, 0 newly installed, 0 to remove.</span>
+Everything is up to date!`,
+'sudo systemctl status nginx':()=>`● nginx.service - A high performance web server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled)
+   Active: <span class="success">active (running)</span> since Mon 2025-01-01
+   Main PID: 5678 (nginx)
+   CGroup: /system.slice/nginx.service`,
+'sudo reboot':()=>`<span class="error">Broadcast message from sunny@server:</span>
+<span class="error">The system is going down for reboot NOW!</span>
+<span class="success">...just kidding. Bu web terminal 😄</span>`,
+'git status':()=>`On branch <span class="success">main</span>
+Your branch is up to date with 'origin/main'.
+nothing to commit, working tree clean`,
+'git clone':()=>`Cloning into 'repository'...
+remote: Enumerating objects: 256, done.
+remote: Counting objects: 100% (256/256), done.
+<span class="success">Cloning complete!</span>`,
+'python3 app.py':()=>`<span class="success"> * Running on http://127.0.0.1:5000</span>
+ * Debug mode: on
+ * Restarting with stat`,
+'ssh root@server':()=>`<span class="success">Welcome to Ubuntu 24.04 LTS</span>
+Last login: ${new Date().toDateString()} from 192.168.1.1
+root@server:~#`,
+'curl ifconfig.me':()=>`<span class="success">203.0.113.42</span>`,
+nmap:()=>`Starting Nmap 7.94 ( https://nmap.org )
+PORT     STATE SERVICE
+<span class="success">22/tcp   open  ssh</span>
+<span class="success">80/tcp   open  http</span>
+<span class="success">443/tcp  open  https</span>
+<span class="success">3306/tcp open  mysql</span>
+Nmap done: 1 IP address (1 host up) scanned in 2.34 seconds`,
+status:()=>`<span class="success">╔══════════════════════════════╗
+║     SERVER STATUS REPORT     ║
+╠══════════════════════════════╣
+║  Status:    ONLINE ✓         ║
+║  Security:  ACTIVE ✓         ║
+║  Firewall:  ENABLED ✓        ║
+║  SSL:       VALID ✓          ║
+║  Uptime:    365 days         ║
+║  Load:      0.02             ║
+╚══════════════════════════════╝</span>`,
+hack:()=>`<span class="error">⚠️  XAVFSIZLIK OGOHLANTIRISHLARI ⚠️</span>
+<span class="error">Ruxsatsiz kirish urinishi aniqlandi!</span>
+<span class="success">...shunchaki hazil 😄</span>
+<span class="success">Men xavfsizlik mutaxassisiman, hacker emas!</span>`,
+matrix:()=>{document.body.classList.toggle('hacker-mode');const ht=document.getElementById('hackerToggle');ht.classList.toggle('active');return document.body.classList.contains('hacker-mode')?`<span class="success">Matrix rejimi yoqildi. Xush kelibsiz, Neo.</span>`:`<span class="success">Matrix rejimi o'chirildi. Oddiy rejimga qaytildi.</span>`}
+};
+
+termInput.addEventListener('keydown',e=>{
+if(e.key==='Enter'){
+const cmd=termInput.value.trim();
+if(!cmd)return;
+cmdHistory.push(cmd);histIdx=cmdHistory.length;
+const result=commands[cmd];
+let output;
+if(result){
+output=result();
+if(output==='__CLEAR__'){termOutput.innerHTML='';termInput.value='';termBody.scrollTop=termBody.scrollHeight;return}
+}else{
+output=`<span class="error">zsh: command not found: ${cmd}</span>`;
+}
+termOutput.innerHTML+=`\n<span class="cmd">sunny@server:~$ ${cmd}</span>\n${output}`;
+termInput.value='';
+termBody.scrollTop=termBody.scrollHeight;
+}else if(e.key==='ArrowUp'){
+e.preventDefault();
+if(histIdx>0){histIdx--;termInput.value=cmdHistory[histIdx]}
+}else if(e.key==='ArrowDown'){
+e.preventDefault();
+if(histIdx<cmdHistory.length-1){histIdx++;termInput.value=cmdHistory[histIdx]}
+else{histIdx=cmdHistory.length;termInput.value=''}
+}
+});
+
+// Click terminal to focus
+document.querySelector('.terminal-wrap').addEventListener('click',()=>termInput.focus());
+
+// ============ COPY EMAIL ============
+document.getElementById('copyEmailBtn').addEventListener('click',()=>{
+navigator.clipboard.writeText('shukurovsunnat464@gmail.com').then(()=>showToast('Email nusxalandi! ✓'));
+});
+
+// ============ TOAST ============
+function showToast(msg){
+const t=document.getElementById('toast');
+t.textContent=msg;t.classList.add('show');
+setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// ============ HACKER MODE ============
+const hackerToggle=document.getElementById('hackerToggle');
+hackerToggle.addEventListener('click',()=>{
+document.body.classList.toggle('hacker-mode');
+hackerToggle.classList.toggle('active');
+if(document.body.classList.contains('hacker-mode')){initMatrix();showToast('Hacker Mode: ON')}
+else{showToast('Normal Mode: ON')}
+});
+
+// ============ MATRIX RAIN ============
+const matrixCanvas=document.getElementById('matrix-canvas');
+const mctx=matrixCanvas.getContext('2d');
+let matrixCols,matrixDrops=[];
+function initMatrix(){
+matrixCanvas.width=window.innerWidth;
+matrixCanvas.height=window.innerHeight;
+matrixCols=Math.floor(matrixCanvas.width/14);
+matrixDrops=[];
+for(let i=0;i<matrixCols;i++)matrixDrops[i]=Math.random()*matrixCanvas.height/14;
+}
+initMatrix();
+window.addEventListener('resize',initMatrix);
+const matrixChars='アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF';
+function drawMatrix(){
+if(!document.body.classList.contains('hacker-mode')){requestAnimationFrame(drawMatrix);return}
+mctx.fillStyle='rgba(10,10,10,0.05)';
+mctx.fillRect(0,0,matrixCanvas.width,matrixCanvas.height);
+mctx.fillStyle='#00ff41';
+mctx.font='14px monospace';
+for(let i=0;i<matrixCols;i++){
+const char=matrixChars[Math.floor(Math.random()*matrixChars.length)];
+mctx.fillText(char,i*14,matrixDrops[i]*14);
+if(matrixDrops[i]*14>matrixCanvas.height&&Math.random()>.975)matrixDrops[i]=0;
+matrixDrops[i]++;
+}
+requestAnimationFrame(drawMatrix);
+}
+drawMatrix();
+
+// ============ SERVICE CARD TILT ============
+document.querySelectorAll('.service-card').forEach(card=>{
+card.addEventListener('mousemove',e=>{
+const r=card.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width-.5;
+const y=(e.clientY-r.top)/r.height-.5;
+card.style.transform=`perspective(600px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-5px)`;
+});
+card.addEventListener('mouseleave',()=>{card.style.transform='perspective(600px) rotateY(0) rotateX(0) translateY(0)'});
+});
+
+})();
+</script>
+</body>
+</html>
